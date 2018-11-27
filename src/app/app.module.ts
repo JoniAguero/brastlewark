@@ -7,9 +7,17 @@ import { AngularMaterialModule } from './angular-material/angular-material.modul
 
 import { SharedModule } from './shared/shared.module';
 
+import { environment } from '../environments/environment';
+// ngrx
+import { StoreModule } from '@ngrx/store';
+import { StoreDevtoolsModule } from '@ngrx/store-devtools';
+import { AppReducer } from './redux/app.reducer';
+
 import { AppComponent } from './app.component';
 import { ApiService } from './services/api.service';
 import { GnomesComponent } from './gnomes/gnomes.component';
+
+
 
 
 @NgModule({
@@ -23,7 +31,12 @@ import { GnomesComponent } from './gnomes/gnomes.component';
     HttpClientModule,
     BrowserAnimationsModule,
     AngularMaterialModule,
-    SharedModule
+    SharedModule,
+    StoreModule.forRoot(AppReducer),
+    StoreDevtoolsModule.instrument({
+      maxAge: 25, // Retains last 25 states
+      logOnly: environment.production, // Restrict extension to log-only mode
+    }),
   ],
   providers: [ApiService],
   bootstrap: [AppComponent]
