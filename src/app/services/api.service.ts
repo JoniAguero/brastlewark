@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
+import { map, take, filter } from 'rxjs/operators';
 
 @Injectable({
   providedIn: 'root'
@@ -12,7 +13,6 @@ export class ApiService {
 
   constructor(private http: HttpClient) { }
 
-  // Uses http.get() to load data from a single API endpoint
   getAllData() {
     return this.http.get(this.URL);
   }
