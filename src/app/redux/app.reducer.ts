@@ -1,5 +1,5 @@
 import { ActionReducerMap } from '@ngrx/store';
-import * as UI from './reducers/ui/ui.reducer';
+import * as UI from './reducers/ui.reducer';
 
 export interface AppState {
     ui: UI.State;
