@@ -16,6 +16,8 @@ $theme: mat-light-theme($primary, $accent, $warn);
 @include angular-material-theme($theme);
 
 body {
+  margin: 0;
+  padding: 0;
   font-family: mat-font-family($config);
   font-weight: normal;
 }

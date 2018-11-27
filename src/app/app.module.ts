@@ -5,6 +5,8 @@ import { HttpClientModule } from '@angular/common/http';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { AngularMaterialModule } from './angular-material/angular-material.module';
 
+import { SharedModule } from './shared/shared.module';
+
 import { AppComponent } from './app.component';
 import { ApiService } from './services/api.service';
 
@@ -18,7 +20,8 @@ import { ApiService } from './services/api.service';
     FormsModule,
     HttpClientModule,
     BrowserAnimationsModule,
-    AngularMaterialModule
+    AngularMaterialModule,
+    SharedModule
   ],
   providers: [ApiService],
   bootstrap: [AppComponent]
