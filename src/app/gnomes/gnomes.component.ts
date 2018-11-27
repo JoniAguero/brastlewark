@@ -1,25 +1,45 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, OnDestroy } from '@angular/core';
 import { ApiService } from '../services/api.service';
+import { Store } from '@ngrx/store';
+import { AppState } from '../redux/app.reducer';
+import { Gnome } from '../models/Gnome.model';
+import { SetGnomes, UnsetGnomes, SetGnomesView } from '../redux/actions/gnomes.actions';
+import { Observable } from 'rxjs';
 
 @Component({
   selector: 'app-gnomes',
   templateUrl: './gnomes.component.html',
   styleUrls: ['./gnomes.component.scss']
 })
-export class GnomesComponent implements OnInit {
+export class GnomesComponent implements OnInit, OnDestroy {
 
-  data: any;
+  gnomes: Gnome[];
+  gnomesView: Observable<Gnome[]>;
 
-  constructor(private _apiService: ApiService) { }
+  constructor(private _apiService: ApiService, private store: Store<AppState>) {
+    this.gnomesView = this.store.select(state => state.gnomes.gnomesView);
+   }
 
   ngOnInit(): void {
-    this.getAllData();
+    this.setGnomes();
   }
-  getAllData() {
+
+  ngOnDestroy(): void {
+    this.unsetGnomes();
+  }
+
+  unsetGnomes () {
+    this.store.dispatch(new UnsetGnomes());
+  }
+
+  setGnomes() {
     this._apiService.getAllData().subscribe(
-      (data: any) => this.data = data.Brastlewark,
+      (data: any) => this.gnomes = data.Brastlewark,
       err => console.error(err),
-      () => console.log(this.data)
+      () => {
+        this.store.dispatch(new SetGnomes(this.gnomes));
+        this.store.dispatch(new SetGnomesView(this.gnomes));
+      }
     );
   }
 
