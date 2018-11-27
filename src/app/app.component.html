@@ -1,0 +1,19 @@
+<h1>
+  {{title}}
+</h1>
+
+<mat-form-field>
+  <input matInput placeholder="Simple Input" [(ngModel)]="title">
+</mat-form-field>
+
+<mat-icon>home</mat-icon>
+
+<button mat-raised-button>I'm a button</button>
+
+<mat-form-field>
+  <mat-select placeholder="I'm a select">
+    <mat-option *ngFor="let item of items" [value]="item">
+      {{item}}
+    </mat-option>
+  </mat-select>
+</mat-form-field>
