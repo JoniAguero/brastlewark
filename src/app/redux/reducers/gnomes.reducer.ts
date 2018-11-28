@@ -21,25 +21,14 @@ export function GnomesReducer(state = initialState, action: gnomesActions.action
                 ]
             };
         case gnomesActions.SET_GNOMES_VIEW:
-        if (action.payload === 0) {
             return {
                 ...state,
                 gnomesView: [
-                    ...action.gnomes.splice(action.payload, action.payload + 20).map(item => {
+                    ...action.gnomes.splice(0, action.payload).map(item => {
                         return { ...item };
                     })
                 ]
             };
-        } else {
-            return {
-                ...state,
-                gnomesView: [
-                    ...action.gnomes.splice(action.payload, action.payload).map(item => {
-                        return { ...item };
-                    })
-                ]
-            };
-        }
         case gnomesActions.UNSET_GNOMES:
             return {
                 gnomesView: [],

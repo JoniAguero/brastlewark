@@ -16,6 +16,7 @@ import { AppReducer } from './redux/app.reducer';
 import { AppComponent } from './app.component';
 import { ApiService } from './services/api.service';
 import { GnomesComponent } from './gnomes/gnomes.component';
+import { GnomeComponent } from './gnome/gnome.component';
 
 
 
@@ -23,7 +24,8 @@ import { GnomesComponent } from './gnomes/gnomes.component';
 @NgModule({
   declarations: [
     AppComponent,
-    GnomesComponent
+    GnomesComponent,
+    GnomeComponent
   ],
   imports: [
     BrowserModule,
