@@ -1,4 +1,4 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, Input } from '@angular/core';
 import { Gnome } from '../models/Gnome.model';
 
 @Component({
@@ -6,14 +6,10 @@ import { Gnome } from '../models/Gnome.model';
   templateUrl: './gnome.component.html',
   styleUrls: ['./gnome.component.scss']
 })
-export class GnomeComponent implements OnInit {
+export class GnomeComponent {
 
   @Input() data: Gnome;
 
   constructor() { }
-
-  ngOnInit() {
-    console.log(this.data);
-  }
 
 }
