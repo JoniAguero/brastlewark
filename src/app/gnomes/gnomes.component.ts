@@ -8,7 +8,9 @@ import { Observable } from 'rxjs';
 
 @Component({
   selector: 'app-gnomes',
-  templateUrl: './gnomes.component.html',
+  template: `<div class="container">
+                  <app-gnome [data]="item" *ngFor="let item of gnomesView | async"></app-gnome>
+                </div>`,
   styleUrls: ['./gnomes.component.scss']
 })
 export class GnomesComponent implements OnInit, OnDestroy {

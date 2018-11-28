@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
+import { Gnome } from '../models/Gnome.model';
 
 @Component({
   selector: 'app-gnome',
@@ -7,9 +8,12 @@ import { Component, OnInit } from '@angular/core';
 })
 export class GnomeComponent implements OnInit {
 
+  @Input() data: Gnome;
+
   constructor() { }
 
   ngOnInit() {
+    console.log(this.data);
   }
 
 }
