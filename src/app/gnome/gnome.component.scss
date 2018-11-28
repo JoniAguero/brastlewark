@@ -1,10 +1,10 @@
-.item {
+.gnome {
   display: inline-block;
   width: 100%;
   position: relative;
 }
 
-.item img {
+.gnome img {
   height: 100%;
   width: 100%;
   min-width: 150px;
@@ -16,16 +16,16 @@
   border-radius: 5px;
 }
 
-.item-image {
+.gnome-image {
   margin: 10px 10px;
 }
 
-.item-image img {
+.gnome-image img {
   width: 100%;
   vertical-align: top;
 }
 
-.item-overlay {
+.gnome-overlay {
   background: rgba(0, 0, 0, .4);
   position: absolute;
   left: 0;
@@ -39,11 +39,11 @@
   text-align: center;
 }
 
-.item:hover .item-overlay {
+.gnome:hover .gnome-overlay {
   display: flex;
 }
 
-.item-info {
+.gnome-info {
   width: 80px;
   margin: 5px;
   font-weight: bold;
