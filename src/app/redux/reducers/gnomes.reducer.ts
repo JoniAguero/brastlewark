@@ -13,11 +13,13 @@ export function GnomesReducer(state = initialState, action: gnomesActions.action
     switch (action.type) {
         case gnomesActions.SET_GNOMES_ALL:
             return {
-                ...state,
                 gnomes: [
                     ...action.gnomes.map(item => {
                         return { ...item };
                     })
+                ],
+                gnomesView: [
+                    ...state.gnomesView
                 ]
             };
         case gnomesActions.SET_GNOMES_VIEW:
