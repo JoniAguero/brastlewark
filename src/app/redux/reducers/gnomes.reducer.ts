@@ -22,9 +22,9 @@ export function GnomesReducer(state = initialState, action: gnomesActions.action
             };
         case gnomesActions.SET_GNOMES_VIEW:
             return {
-                ...state,
+                gnomes: [...state.gnomes],
                 gnomesView: [
-                    ...action.gnomes.splice(0, action.payload).map(item => {
+                    ...state.gnomes.splice(0, action.payload).map(item => {
                         return { ...item };
                     })
                 ]

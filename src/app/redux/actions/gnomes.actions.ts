@@ -13,7 +13,7 @@ export class SetGnomes implements Action {
 
 export class SetGnomesView implements Action {
     readonly type = SET_GNOMES_VIEW;
-    constructor(public gnomes: Gnome[], public payload: number = 20) {}
+    constructor(public payload: number = 20) {}
 }
 
 export class UnsetGnomes implements Action {

@@ -21,9 +21,6 @@ import { GnomeComponent } from './gnome/gnome.component';
 import { InfoGnomeComponent } from './info-gnome/info-gnome.component';
 import { AppRoutingModule } from './app-routing.module';
 
-
-
-
 @NgModule({
   declarations: [
     AppComponent,

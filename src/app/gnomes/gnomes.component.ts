@@ -40,7 +40,7 @@ export class GnomesComponent implements OnInit, OnDestroy {
       err => console.error(err),
       () => {
         this.store.dispatch(new SetGnomes(this.gnomes));
-        this.store.dispatch(new SetGnomesView(this.gnomes));
+        this.store.dispatch(new SetGnomesView());
       }
     );
   }
