@@ -5,6 +5,7 @@ import { AppState } from '../redux/app.reducer';
 import { Gnome } from '../models/Gnome.model';
 import { SetGnomes, UnsetGnomes, SetGnomesView } from '../redux/actions/gnomes.actions';
 import { Observable } from 'rxjs';
+import { SetCounter } from '../redux/actions/counter.action';
 
 @Component({
   selector: 'app-gnomes',
@@ -40,7 +41,8 @@ export class GnomesComponent implements OnInit, OnDestroy {
       err => console.error(err),
       () => {
         this.store.dispatch(new SetGnomes(this.gnomes));
-        this.store.dispatch(new SetGnomesView());
+        this.store.dispatch(new SetCounter(20));
+        this.store.dispatch(new SetGnomesView(20));
       }
     );
   }
