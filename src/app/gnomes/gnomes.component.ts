@@ -9,7 +9,7 @@ import { Observable } from 'rxjs';
 @Component({
   selector: 'app-gnomes',
   template: `<div class="container">
-                  <app-gnome [data]="item" *ngFor="let item of gnomesView | async"></app-gnome>
+                  <app-gnome class="item" [data]="item" *ngFor="let item of gnomesView | async"></app-gnome>
                 </div>`,
   styleUrls: ['./gnomes.component.scss']
 })

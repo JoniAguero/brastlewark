@@ -1,0 +1,17 @@
+.item {
+  display: inline-block;
+  width: 100%;
+}
+
+.item img {
+  height: 100%;
+  width: 100%;
+  min-width: 150px;
+  cursor: pointer;
+  -webkit-box-shadow: 10px 10px 21px -8px rgba(0, 0, 0, 0.75);
+  -moz-box-shadow: 10px 10px 21px -8px rgba(0, 0, 0, 0.75);
+  box-shadow: 10px 10px 21px -8px rgba(0, 0, 0, 0.75);
+  background-color: rgb(233, 233, 233);
+  border-radius: 5px;
+}
+
