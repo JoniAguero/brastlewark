@@ -5,6 +5,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { AngularMaterialModule } from './angular-material/angular-material.module';
 
+
 import { SharedModule } from './shared/shared.module';
 
 import { environment } from '../environments/environment';
@@ -17,6 +18,8 @@ import { AppComponent } from './app.component';
 import { ApiService } from './services/api.service';
 import { GnomesComponent } from './gnomes/gnomes.component';
 import { GnomeComponent } from './gnome/gnome.component';
+import { InfoGnomeComponent } from './info-gnome/info-gnome.component';
+import { AppRoutingModule } from './app-routing.module';
 
 
 
@@ -25,7 +28,8 @@ import { GnomeComponent } from './gnome/gnome.component';
   declarations: [
     AppComponent,
     GnomesComponent,
-    GnomeComponent
+    GnomeComponent,
+    InfoGnomeComponent
   ],
   imports: [
     BrowserModule,
@@ -34,6 +38,7 @@ import { GnomeComponent } from './gnome/gnome.component';
     BrowserAnimationsModule,
     AngularMaterialModule,
     SharedModule,
+    AppRoutingModule,
     StoreModule.forRoot(AppReducer),
     StoreDevtoolsModule.instrument({
       maxAge: 25, // Retains last 25 states
