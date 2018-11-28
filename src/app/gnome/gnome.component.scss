@@ -1,6 +1,7 @@
 .item {
   display: inline-block;
   width: 100%;
+  position: relative;
 }
 
 .item img {
@@ -15,3 +16,37 @@
   border-radius: 5px;
 }
 
+.item-image {
+  margin: 10px 10px;
+}
+
+.item-image img {
+  width: 100%;
+  vertical-align: top;
+}
+
+.item-overlay {
+  background: rgba(0, 0, 0, .4);
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  top: 0;
+  display: none;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  text-align: center;
+}
+
+.item:hover .item-overlay {
+  display: flex;
+}
+
+.item-info {
+  width: 80px;
+  margin: 5px;
+  font-weight: bold;
+  text-align: center;
+  display: inline-block;
+}
