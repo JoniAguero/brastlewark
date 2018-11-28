@@ -1,3 +1,5 @@
-<p *ngFor="let item of gnomesView | async">
-  {{item.name}}
-</p>
+<div class="container">
+  <div class="item" *ngFor="let item of gnomesView | async">
+    <img src={{item.thumbnail}} alt="">
+  </div>
+</div>
