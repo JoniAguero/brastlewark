@@ -40,6 +40,27 @@
   text-align: center;
 }
 
+.gnome-name {
+  background: rgba(255, 255, 255, 0.3);
+  border-radius: 5px;
+  position: absolute;
+  right: 10px;
+  bottom: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: black;
+  text-align: center;
+}
+
+.gnome-name-display {
+  width: 200px;
+  margin: 5px;
+  font-weight: bold;
+  text-align: center;
+  display: inline-block;
+}
+
 .gnome:hover .gnome-overlay {
   display: flex;
 }

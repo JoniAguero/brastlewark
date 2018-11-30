@@ -8,11 +8,16 @@ import { Store } from '@ngrx/store';
   selector: 'app-gnome',
   template: `<a routerLink="/gnome/{{data.id}}" class="gnome" (click)="setGnomeSelected()">
               <figure class="gnome-image">
-              <img src={{data.thumbnail}} alt="{{data.name}}">
+                <img src={{data.thumbnail}} alt="{{data.name}}">
               </figure>
               <span class="gnome-overlay">
                 <p>
                   <span class="gnome-info">Ver Información</span>
+                </p>
+              </span>
+              <span class="gnome-name">
+                <p>
+                  <span class="gnome-name-display">{{data.name}}</span>
                 </p>
               </span>
             </a>`,
