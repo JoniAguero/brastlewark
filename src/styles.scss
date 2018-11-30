@@ -4,9 +4,9 @@
 
 @include mat-core();
 
-$primary: mat-palette($mat-lime, 500);
-$accent:  mat-palette($mat-lime, 500, A200, A400);
-$warn:    mat-palette($mat-red, 500);
+$primary: mat-palette($mat-green, 900);
+$accent:  mat-palette($mat-lime, 900, A200, A400);
+$warn:    mat-palette($mat-red, 900);
 
 $config: mat-typography-config();
 
