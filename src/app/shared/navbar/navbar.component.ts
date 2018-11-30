@@ -4,7 +4,7 @@ import { FormBuilder } from '@angular/forms';
 @Component({
   selector: 'app-navbar',
   template: `<div class="navbar" id="navbar">
-              <a routerLink="/gnomes">
+              <a routerLink="/" class="navbar-link">
                 <figure class="navbar-image" id="navbar-image">
                   <img src="../../../assets/images/icon.png" alt="icon">
                 </figure>
