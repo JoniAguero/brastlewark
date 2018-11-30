@@ -10,8 +10,9 @@ import { SetCounter } from '../../redux/actions/counter.action';
 @Component({
   selector: 'app-gnomes',
   template: `<div class="container">
-                  <app-gnome [data]="item" *ngFor="let item of gnomesView | async"></app-gnome>
-                </div>`,
+                <app-gnome [data]="item" *ngFor="let item of gnomesView | async"></app-gnome>
+              </div>
+              <app-button-more></app-button-more>`,
   styleUrls: ['./gnomes.component.scss']
 })
 export class GnomesComponent implements OnInit, OnDestroy {
