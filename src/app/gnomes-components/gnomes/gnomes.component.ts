@@ -33,7 +33,7 @@ export class GnomesComponent implements OnInit, OnDestroy {
   }
 
   unsetGnomes () {
-    this.store.dispatch(new UnsetGnomes());
+    // this.store.dispatch(new UnsetGnomes());
   }
 
   setGnomes() {

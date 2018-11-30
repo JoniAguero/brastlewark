@@ -20,7 +20,7 @@ export class ButtonMoreComponent {
   clickMore() {
     this.store.select(state => state.counter.counter).subscribe(data => {
       this.counter = data;
-    });
+    }).unsubscribe();
     this.store.dispatch(new SetCounter(20));
   }
 }
