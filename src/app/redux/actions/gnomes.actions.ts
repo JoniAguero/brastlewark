@@ -1,6 +1,6 @@
 import { Action } from '@ngrx/store';
 
-import { Gnome} from '../../models/Gnome.model';
+import { Gnome} from '../../utils/models/Gnome.model';
 
 export const SET_GNOMES_ALL = '[SET GNOMES ALL] Set ...';
 export const SET_GNOMES_VIEW = '[SET GNOMES VIEW] Set ...';

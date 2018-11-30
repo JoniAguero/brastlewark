@@ -20,13 +20,15 @@ import { GnomesComponent } from './gnomes/gnomes.component';
 import { GnomeComponent } from './gnome/gnome.component';
 import { InfoGnomeComponent } from './info-gnome/info-gnome.component';
 import { AppRoutingModule } from './app-routing.module';
+import { ArraySortPipe } from './utils/pipes/sort.pipe';
 
 @NgModule({
   declarations: [
     AppComponent,
     GnomesComponent,
     GnomeComponent,
-    InfoGnomeComponent
+    InfoGnomeComponent,
+    ArraySortPipe
   ],
   imports: [
     BrowserModule,

@@ -1,5 +1,5 @@
 import { Component, Input } from '@angular/core';
-import { Gnome } from '../models/Gnome.model';
+import { Gnome } from '../utils/models/Gnome.model';
 
 @Component({
   selector: 'app-gnome',

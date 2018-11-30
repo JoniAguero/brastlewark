@@ -1,5 +1,5 @@
 import * as gnomesActions from '../actions/gnomes.actions';
-import { Gnome } from '../../models/Gnome.model';
+import { Gnome } from '../../utils/models/Gnome.model';
 
 export interface State {
     gnomes: Gnome[];
