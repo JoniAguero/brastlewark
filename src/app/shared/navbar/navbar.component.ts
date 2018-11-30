@@ -2,9 +2,9 @@ import { Component, OnInit } from '@angular/core';
 
 @Component({
   selector: 'app-navbar',
-  template: `<div class="navbar">
+  template: `<div class="navbar" id="navbar">
               <a routerLink="/gnomes">
-                <figure class="navbar-image">
+                <figure class="navbar-image" id="navbar-image">
                   <img src="../../../assets/images/icon.png" alt="icon">
                 </figure>
                 </a>
