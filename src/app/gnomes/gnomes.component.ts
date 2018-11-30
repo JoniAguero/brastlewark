@@ -41,10 +41,9 @@ export class GnomesComponent implements OnInit, OnDestroy {
       err => console.error(err),
       () => {
         this.store.dispatch(new SetGnomes(this.gnomes));
-        this.store.dispatch(new SetCounter(20));
+        this.store.dispatch(new SetCounter(0));
         this.store.select(state => state.counter.counter).subscribe({
           next: (x) => {
-            console.log(x);
             this.store.dispatch(new SetGnomesView(x));
           }
         });
