@@ -1,16 +1,16 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
-import { ApiService } from '../services/api.service';
+import { ApiService } from '../../services/api.service';
 import { Store } from '@ngrx/store';
-import { AppState } from '../redux/app.reducer';
-import { Gnome } from '../utils/models/Gnome.model';
-import { SetGnomes, UnsetGnomes, SetGnomesView } from '../redux/actions/gnomes.actions';
+import { AppState } from '../../redux/app.reducer';
+import { Gnome } from '../../utils/models/Gnome.model';
+import { SetGnomes, UnsetGnomes, SetGnomesView } from '../../redux/actions/gnomes.actions';
 import { Observable } from 'rxjs';
-import { SetCounter } from '../redux/actions/counter.action';
+import { SetCounter } from '../../redux/actions/counter.action';
 
 @Component({
   selector: 'app-gnomes',
   template: `<div class="container">
-                  <app-gnome [data]="item" *ngFor="let item of gnomesView | async | sort:'item.id'"></app-gnome>
+                  <app-gnome [data]="item" *ngFor="let item of gnomesView | async"></app-gnome>
                 </div>`,
   styleUrls: ['./gnomes.component.scss']
 })

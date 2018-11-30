@@ -1,8 +1,8 @@
 import { NgModule } from '@angular/core';
 
 import { Routes, RouterModule } from '@angular/router';
-import { GnomesComponent } from './gnomes/gnomes.component';
-import { InfoGnomeComponent } from './info-gnome/info-gnome.component';
+import { GnomesComponent } from './gnomes-components/gnomes/gnomes.component';
+import { InfoGnomeComponent } from './gnomes-components/info-gnome/info-gnome.component';
 
 const routes: Routes = [
 
