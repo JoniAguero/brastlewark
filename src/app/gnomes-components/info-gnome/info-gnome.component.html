@@ -3,7 +3,16 @@
 		<div class="title">{{gnomeSelected.name}}</div>
 		<div class="image" [ngStyle]="{'background-image': 'url(' + gnomeSelected.thumbnail + ')'}"></div>
 		<div class="age">
-			<app-details-gnome [data]="gnomeSelected"></app-details-gnome>
+			<app-details-gnome [title]="'Age'" [data]="gnomeSelected.age"></app-details-gnome>
+		</div>
+		<div class="weight">
+			<app-details-gnome [title]="'Weight'" [data]="gnomeSelected.weight"></app-details-gnome>
+		</div>
+		<div class="height">
+			<app-details-gnome [title]="'Height'" [data]="gnomeSelected.height"></app-details-gnome>
+		</div>
+		<div class="hair_color">
+			<app-details-gnome [title]="'Hair Color'" [data]="gnomeSelected.hair_color"></app-details-gnome>
 		</div>
 	</div>
 </div>

@@ -8,12 +8,11 @@ import { Gnome } from '../../utils/models/Gnome.model';
 })
 export class DetailsGnomeComponent implements OnInit {
 
-  @Input() data: Gnome;
+  @Input() data: any;
+  @Input() title: String;
 
   constructor() { }
 
-  ngOnInit() {
-    console.log(this.data);
-  }
+  ngOnInit() {}
 
 }

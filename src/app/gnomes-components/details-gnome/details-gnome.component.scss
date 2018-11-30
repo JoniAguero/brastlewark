@@ -1,3 +1,33 @@
 .details-container {
     display: grid;
 }
+
+.details-title {
+  font-size: 1.6em;
+  text-align: center;
+  margin: 0;
+  padding-top: 10px;
+}
+
+.details-info {
+  display: flex;
+  align-items: center;
+}
+
+.details-info > div, p {
+  display: inline;
+}
+
+.details-info-data{
+  font-size: 20px;
+}
+
+.arrow_right {
+  -webkit-animation: right .5s linear infinite;
+  -moz-animation: right .5s linear infinite;
+  animation: right .5s linear infinite;
+}
+
+@-moz-keyframes right { 100% { -moz-transform: translate(5px,0); } }
+@-webkit-keyframes right { 100% { -webkit-transform: translate(5px,0); } }
+@keyframes right { 100% { -webkit-transform: translate(5px,0); transform:translate(5px,0); } }

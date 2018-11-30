@@ -7,7 +7,7 @@ import { SetCounter } from 'src/app/redux/actions/counter.action';
   selector: 'app-button-more',
   template: `<div class="button-more">
               <button mat-icon-button (click)="clickMore()">
-                <mat-icon>arrow_drop_down</mat-icon>
+                <mat-icon class="arrow_drop_down">arrow_drop_down</mat-icon>
               </button>
              </div>`,
   styleUrls: ['./button-more.component.scss']

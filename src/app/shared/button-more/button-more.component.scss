@@ -10,12 +10,12 @@
   font-size: 56px !important;
 }
 
-.mat-icon{
-    -webkit-animation:spin 1s linear infinite;
-    -moz-animation:spin 1s linear infinite;
-    animation:spin 1s linear infinite;
+.arrow_drop_down {
+    -webkit-animation:down 1s linear infinite;
+    -moz-animation:down 1s linear infinite;
+    animation:down 1s linear infinite;
 }
 
-@-moz-keyframes spin { 100% { -moz-transform: translate(0,20px); } }
-@-webkit-keyframes spin { 100% { -webkit-transform: translate(0,20px); } }
-@keyframes spin { 100% { -webkit-transform: translate(0,20px); transform:translate(0,20px); } }
+@-moz-keyframes down { 100% { -moz-transform: translate(0,20px); } }
+@-webkit-keyframes down { 100% { -webkit-transform: translate(0,20px); } }
+@keyframes down { 100% { -webkit-transform: translate(0,20px); transform:translate(0,20px); } }
