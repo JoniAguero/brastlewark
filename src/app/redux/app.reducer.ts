@@ -9,12 +9,12 @@ export interface AppState {
     ui: UI.State;
     gnomes: Gnomes.State;
     counter: Counter.State;
-    Search: Search.State;
+    search: Search.State;
 }
 export const AppReducer: ActionReducerMap<AppState> = {
     ui: UI.UIReducer,
     gnomes: Gnomes.GnomesReducer,
     counter: Counter.CounterReducer,
-    Search: Search.SearchReducer
+    search: Search.SearchReducer
 };
 

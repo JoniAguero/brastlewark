@@ -1,6 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder } from '@angular/forms';
 
+import { Store } from '@ngrx/store';
+import { AppState } from 'src/app/redux/app.reducer';
+import { SetSearch } from 'src/app/redux/actions/search.action';
+
 @Component({
   selector: 'app-navbar',
   template: `<div class="navbar" id="navbar">
@@ -26,7 +30,7 @@ export class NavbarComponent implements OnInit {
     name: ['']
   });
 
-  constructor(private fb: FormBuilder) { }
+  constructor(private fb: FormBuilder, private store: Store<AppState>) { }
 
   ngOnInit() {
     this.formControlValueChanged();
@@ -34,8 +38,8 @@ export class NavbarComponent implements OnInit {
 
   formControlValueChanged() {
     this.gnomeForm.get('name').valueChanges.subscribe(
-      (mode: string) => {
-        console.log(mode);
+      (search: string) => {
+        this.store.dispatch(new SetSearch(search));
       });
   }
 

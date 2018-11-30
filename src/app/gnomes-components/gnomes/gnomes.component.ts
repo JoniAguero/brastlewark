@@ -6,6 +6,7 @@ import { Gnome } from '../../utils/models/Gnome.model';
 import { SetGnomes, UnsetGnomes, SetGnomesView } from '../../redux/actions/gnomes.actions';
 import { Observable } from 'rxjs';
 import { SetCounter } from '../../redux/actions/counter.action';
+import { map } from 'rxjs/operators';
 
 @Component({
   selector: 'app-gnomes',
@@ -19,9 +20,14 @@ export class GnomesComponent implements OnInit, OnDestroy {
 
   gnomes: Gnome[];
   gnomesView: Observable<Gnome[]>;
+  search: any;
 
   constructor(private _apiService: ApiService, private store: Store<AppState>) {
-    this.gnomesView = this.store.select(state => state.gnomes.gnomesView);
+    this.search = this.store.select(state => state.search.search).subscribe(search => {
+      console.log(search);
+      this.gnomesView = this.store.select(state => state.gnomes.gnomesView).pipe(
+        map(gnome => gnome.filter(gnomeFilter => gnomeFilter.name.toLocaleLowerCase().match(search.toLocaleLowerCase()))));
+    });
    }
 
   ngOnInit(): void {
