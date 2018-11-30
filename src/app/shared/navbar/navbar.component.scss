@@ -1,6 +1,32 @@
 .navbar {
     width: 100%;
     height: 100px;
-    background-color: red;
+    background-color: #cca96c;
     margin-bottom: 1%;
+    position: fixed;
+    z-index: 10;
+    top: 0;
+    display: flex;
+    justify-content: space-evenly;
+    flex-wrap: nowrap;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.navbar .navbar-image {
+    width: 90px;
+    height: 90px;
+    margin: 0;
+    padding-top: 5px;
+    padding-left: 20px;
+}
+
+.navbar .navbar-image img {
+    width: 100%;
+    height: 100%;
+    cursor: pointer;
+}
+
+.navbar-menu {
+    margin-right: 10px;
 }
