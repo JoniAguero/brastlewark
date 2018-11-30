@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { AngularMaterialModule } from '../angular-material/angular-material.module';
 import { AppRoutingModule } from '../app-routing.module';
+
 import { SharedModule } from '../shared/shared.module';
 
 import { GnomeComponent } from './gnome/gnome.component';
