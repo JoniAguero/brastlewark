@@ -1,9 +1,12 @@
 import { Component, Input } from '@angular/core';
 import { Gnome } from '../../utils/models/Gnome.model';
+import { SetGnomeSelected } from '../../redux/actions/gnomes.actions';
+import { AppState } from 'src/app/redux/app.reducer';
+import { Store } from '@ngrx/store';
 
 @Component({
   selector: 'app-gnome',
-  template: `<a routerLink="/gnome/{{data.id}}" class="gnome">
+  template: `<a routerLink="/gnome/{{data.id}}" class="gnome" (click)="setGnomeSelected()">
               <figure class="gnome-image">
               <img src={{data.thumbnail}} alt="{{data.name}}">
               </figure>
@@ -19,6 +22,10 @@ export class GnomeComponent {
 
   @Input() data: Gnome;
 
-  constructor() { }
+  constructor(private store: Store<AppState>) { }
+
+  setGnomeSelected() {
+    this.store.dispatch(new SetGnomeSelected(this.data));
+  }
 
 }

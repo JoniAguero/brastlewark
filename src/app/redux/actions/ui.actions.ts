@@ -9,5 +9,6 @@ export class LoadingUIAction implements Action {
 export class NotLoadingUIAction implements Action {
     readonly type = NOT_LOADING;
 }
-export type actions = LoadingUIAction |
+export type actions =
+    LoadingUIAction |
     NotLoadingUIAction;

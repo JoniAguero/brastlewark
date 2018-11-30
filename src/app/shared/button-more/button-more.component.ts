@@ -20,10 +20,7 @@ export class ButtonMoreComponent {
   clickMore() {
     this.store.select(state => state.counter.counter).subscribe(data => {
       this.counter = data;
-      console.log('Counter dentro: ', this.counter);
     });
-    console.log('Counter fuera: ', this.counter);
     this.store.dispatch(new SetCounter(20));
-    console.log('Counter fuera2: ', this.counter);
   }
 }

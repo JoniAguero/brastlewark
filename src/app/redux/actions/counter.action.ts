@@ -11,5 +11,6 @@ export class SetCounter implements Action {
 export class UnsetCounter implements Action {
     readonly type = UNSET_COUNTER;
 }
-export type actions = SetCounter |
+export type actions =
+    SetCounter |
     UnsetCounter;
