@@ -1,11 +1,16 @@
 .details-container {
     display: grid;
+    background-color: rgba(204, 169, 108, .9);
+    padding: 10px 10px;
+    border-radius: 5px;
+    -webkit-box-shadow: 10px 10px 21px -8px rgba(0, 0, 0, 0.75);
+    -moz-box-shadow: 10px 10px 21px -8px rgba(0, 0, 0, 0.75);
+    box-shadow: 10px 10px 21px -8px rgba(0, 0, 0, 0.75);
 }
 
 .details-title {
   font-size: 1.6em;
   margin: 0;
-  padding-top: 10px;
   margin-left: 25px;
 }
 

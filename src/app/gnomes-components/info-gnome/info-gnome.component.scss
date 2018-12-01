@@ -10,7 +10,7 @@
   display: grid;
   grid-template-columns: 500px 1fr 1fr 1fr 1fr;
   grid-template-areas: "title title title title title"
-                       "image age weight height hair_color";
+  "image age weight height hair_color";
   grid-gap: 10px;
 }
 
@@ -47,4 +47,43 @@
 
 .hair_color {
   grid-area: hair_color;
+}
+
+@media only screen and (max-width: 480px) {
+  .grid-container {
+    display: grid;
+    grid-template-columns: 200px 200px;
+    grid-template-areas: "title title"
+                         "image image"
+                         "age weight"
+                         "height hair_color";
+    grid-gap: 10px;
+    justify-content: center;
+  }
+  .title {
+    font-size: 24px;
+  }
+  .image {
+    max-width: 480px;
+    height: 50vh;
+  }
+  .age {
+    width: 95%;
+    margin-left: 2.5%;
+  }
+
+  .weight {
+    width: 95%;
+    margin-left: 2.5%;
+  }
+
+  .height {
+    width: 95%;
+    margin-left: 2.5%;
+  }
+
+  .hair_color {
+    width: 95%;
+    margin-left: 2.5%;
+  }
 }
