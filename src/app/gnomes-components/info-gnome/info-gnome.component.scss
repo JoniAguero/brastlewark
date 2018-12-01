@@ -50,40 +50,52 @@
 }
 
 @media only screen and (max-width: 480px) {
+  .grid {
+    padding: 0;
+  }
   .grid-container {
     display: grid;
-    grid-template-columns: 200px 200px;
+    grid-template-columns: 1fr 1fr;
     grid-template-areas: "title title"
                          "image image"
                          "age weight"
                          "height hair_color";
-    grid-gap: 10px;
     justify-content: center;
-  }
-  .title {
-    font-size: 24px;
+    font-size: 12px;
+    text-align: center;
   }
   .image {
-    max-width: 480px;
+    max-width: 380px;
     height: 50vh;
-  }
-  .age {
     width: 95%;
     margin-left: 2.5%;
+    background-size: cover;
+  }
+  .title {
+    margin: 0;
+    margin-top: 10px;
+  }
+  .age {
+    width: 80%;
+    margin-left: 10%;
+    text-align: center; 
   }
 
   .weight {
-    width: 95%;
-    margin-left: 2.5%;
+    width: 80%;
+    margin-left: 10%;
+    text-align: center; 
   }
 
   .height {
-    width: 95%;
-    margin-left: 2.5%;
+    width: 80%;
+    margin-left: 10%;
+    text-align: center; 
   }
 
   .hair_color {
-    width: 95%;
-    margin-left: 2.5%;
+    width: 80%;
+    margin-left: 10%;
+    text-align: center; 
   }
 }
