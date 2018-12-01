@@ -4,14 +4,13 @@
 
 .details-title {
   font-size: 1.6em;
-  text-align: center;
   margin: 0;
   padding-top: 10px;
+  margin-left: 25px;
 }
 
 .details-info {
   display: flex;
-  align-items: center;
 }
 
 .details-info > div, p {
@@ -19,7 +18,10 @@
 }
 
 .details-info-data{
+  width: 100%;
   font-size: 20px;
+  margin-left: 15px;
+  margin-top: 5px;
 }
 
 .arrow_right {

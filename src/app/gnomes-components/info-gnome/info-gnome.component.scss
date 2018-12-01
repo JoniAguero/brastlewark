@@ -10,7 +10,7 @@
   display: grid;
   grid-template-columns: 500px 1fr 1fr 1fr 1fr;
   grid-template-areas: "title title title title title"
-                       "image age . . . ";
+                       "image age weight height hair_color";
   grid-gap: 10px;
 }
 
@@ -35,4 +35,16 @@
 
 .age {
   grid-area: age;
+}
+
+.weight {
+  grid-area: weight;
+}
+
+.height {
+  grid-area: height;
+}
+
+.hair_color {
+  grid-area: hair_color;
 }
