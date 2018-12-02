@@ -24,7 +24,6 @@ export class GnomesComponent implements OnInit, OnDestroy {
 
   constructor(private _apiService: ApiService, private store: Store<AppState>) {
     this.search = this.store.select(state => state.search.search).subscribe(search => {
-      console.log(search);
       this.gnomesView = this.store.select(state => state.gnomes.gnomesView).pipe(
         map(gnome => gnome.filter(gnomeFilter => gnomeFilter.name.toLocaleLowerCase().match(search.toLocaleLowerCase()))));
     });

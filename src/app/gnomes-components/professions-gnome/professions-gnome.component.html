@@ -1,3 +1,12 @@
-<p>
-  professions-gnome works!
-</p>
+<div class="container-professions">
+  <h4 class="professions-title">Professions</h4>
+  <ng-container *ngIf="professions.length > 0; else elseTemplate">
+    <mat-chip-list class="professions-items">
+      <mat-chip *ngFor="let profession of professions">{{profession}}</mat-chip>
+    </mat-chip-list>
+  </ng-container>
+  <ng-template #elseTemplate>
+    <p>No se encontraron registros</p>
+  </ng-template>
+  
+</div>

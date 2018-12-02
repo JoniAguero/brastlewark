@@ -32,22 +32,25 @@
   display: flex;
   justify-self: center;
 }
-
 .age {
   grid-area: age;
 }
-
 .weight {
   grid-area: weight;
 }
-
 .height {
   grid-area: height;
 }
-
 .hair_color {
   grid-area: hair_color;
 }
+.professions_gnome {
+  grid-area: professions_gnome;
+}
+.friends_gnome {
+  grid-area: friends_gnome;
+}
+
 
 @media only screen and (max-width: 480px) {
   .grid {
@@ -59,7 +62,9 @@
     grid-template-areas: "title title"
                          "image image"
                          "age weight"
-                         "height hair_color";
+                         "height hair_color"
+                         "professions_gnome professions_gnome"
+                         "friends_gnome friends_gnome";
     justify-content: center;
     font-size: 12px;
     text-align: center;
