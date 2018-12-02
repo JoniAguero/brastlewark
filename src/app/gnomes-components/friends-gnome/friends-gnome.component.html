@@ -1,3 +1,12 @@
-<p>
-  friends-gnome works!
-</p>
+<div class="container-friends">
+  <h4 class="friends-title ">Friends</h4>
+  <ng-container *ngIf="friends.length > 0; else elseTemplate">
+    <mat-chip-list class="friends-items">
+      <mat-chip *ngFor="let friend of friends">{{friend}}</mat-chip>
+    </mat-chip-list>
+  </ng-container>
+  <ng-template #elseTemplate>
+    <p>No se encontraron registros</p>
+  </ng-template>
+
+</div>
