@@ -12,6 +12,8 @@ import { environment } from '../environments/environment';
 import { StoreModule } from '@ngrx/store';
 import { StoreDevtoolsModule } from '@ngrx/store-devtools';
 import { AppReducer } from './redux/app.reducer';
+import { EffectsModule } from '@ngrx/effects';
+import { effectsArray } from './redux/effects/index';
 
 import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app-routing.module';
@@ -30,6 +32,7 @@ import { AppRoutingModule } from './app-routing.module';
     SharedModule,
     AppRoutingModule,
     StoreModule.forRoot(AppReducer),
+    EffectsModule.forRoot(effectsArray),
     StoreDevtoolsModule.instrument({
       maxAge: 25, // Retains last 25 states
       logOnly: environment.production, // Restrict extension to log-only mode
