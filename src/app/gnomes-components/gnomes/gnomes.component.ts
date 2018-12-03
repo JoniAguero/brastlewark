@@ -20,10 +20,9 @@ export class GnomesComponent implements OnInit, OnDestroy {
 
   gnomes: Gnome[];
   gnomesView: Observable<Gnome[]>;
-  search: any;
 
   constructor(private _apiService: ApiService, private store: Store<AppState>) {
-    this.search = this.store.select(state => state.search.search).subscribe(search => {
+    this.store.select(state => state.search.search).subscribe(search => {
       this.gnomesView = this.store.select(state => state.gnomes.gnomesView).pipe(
         map(gnome => gnome.filter(gnomeFilter => gnomeFilter.name.toLocaleLowerCase().match(search.toLocaleLowerCase()))));
     });

@@ -21,9 +21,10 @@ export class InfoGnomeComponent implements OnInit {
           this.router.navigate(['/gnomes']);
         }
         this.gnomeSelected = data;
+        console.log(this.gnomeSelected);
       },
       err => console.error(err)
-    ).unsubscribe();
+    );
   }
 
 }

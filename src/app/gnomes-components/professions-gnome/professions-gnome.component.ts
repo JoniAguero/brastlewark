@@ -5,14 +5,10 @@ import { Component, OnInit, Input } from '@angular/core';
   templateUrl: './professions-gnome.component.html',
   styleUrls: ['./professions-gnome.component.scss']
 })
-export class ProfessionsGnomeComponent implements OnInit {
+export class ProfessionsGnomeComponent {
 
   @Input() professions: string [];
 
   constructor() { }
-
-  ngOnInit() {
-    console.log(this.professions);
-  }
 
 }
