@@ -15,7 +15,7 @@ import { SetSearch } from 'src/app/redux/actions/search.action';
               </a>
               <form class="navbar-form" [formGroup]="gnomeForm">
                 <mat-form-field class="navbar-form-input">
-                  <input matInput placeholder="Buscar Gnomo" value="" formControlName="name">
+                  <input matInput placeholder="Search Gnome" value="" formControlName="name">
                 </mat-form-field>
               </form>
               <div class="navbar-menu">
