@@ -52,6 +52,62 @@
   grid-area: friends_gnome;
 }
 
+@media only screen and (max-width: 1024px) {
+  .grid {
+    padding: 0;
+  }
+
+  .grid-container {
+    display: grid;
+    grid-template-columns: 600px 1fr 1fr;
+    grid-template-areas: "title title title"
+                         "image age weight"
+                         "image height hair_color"
+                         "image professions_gnome friends_gnome";
+    justify-content: center;
+    font-size: 12px;
+    text-align: center;
+  }
+
+  .image {
+    max-width: 100%;
+    height: 70vh;
+    width: 95%;
+    margin-left: 2.5%;
+    background-size: cover;
+  }
+
+  .title {
+    margin: 0;
+    margin-top: 30px;
+    margin-bottom: 20px;
+  }
+
+  .age {
+    width: 80%;
+    margin-left: 10%;
+    text-align: center;
+  }
+
+  .weight {
+    width: 80%;
+    margin-left: 10%;
+    text-align: center;
+  }
+
+  .height {
+    width: 80%;
+    margin-left: 10%;
+    text-align: center;
+  }
+
+  .hair_color {
+    width: 80%;
+    margin-left: 10%;
+    text-align: center;
+  }
+}
+
 @media only screen and (max-width: 768px) {
   .grid {
     padding: 0;
@@ -82,7 +138,8 @@
 
   .title {
     margin: 0;
-    margin-top: 10px;
+    margin-top: 30px;
+    margin-bottom: 20px;
   }
 
   .age {
