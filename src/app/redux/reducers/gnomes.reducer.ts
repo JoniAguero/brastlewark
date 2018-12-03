@@ -13,7 +13,7 @@ const initialState: State = {
 };
 export function GnomesReducer(state = initialState, action: gnomesActions.actions): State {
     switch (action.type) {
-        case gnomesActions.SET_GNOMES_ALL_SUCCESS:
+        case gnomesActions.SET_GNOMES_ALL:
             return {
                 gnomes: [
                     ...action.gnomes.map(item => {
@@ -25,7 +25,7 @@ export function GnomesReducer(state = initialState, action: gnomesActions.action
                 ],
                 gnomeSelected: state.gnomeSelected
             };
-        case gnomesActions.SET_GNOMES_VIEW_SUCCESS:
+        case gnomesActions.SET_GNOMES_VIEW:
             return {
                 gnomes: [...state.gnomes],
                 gnomesView: [

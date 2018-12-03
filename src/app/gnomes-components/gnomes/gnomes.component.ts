@@ -3,7 +3,7 @@ import { ApiService } from '../../services/api.service';
 import { Store } from '@ngrx/store';
 import { AppState } from '../../redux/app.reducer';
 import { Gnome } from '../../utils/models/Gnome.model';
-import { SetGnomesView, LoadGnomes } from '../../redux/actions/gnomes.actions';
+import { SetGnomes, UnsetGnomes, SetGnomesView } from '../../redux/actions/gnomes.actions';
 import { Observable } from 'rxjs';
 import { SetCounter } from '../../redux/actions/counter.action';
 import { map } from 'rxjs/operators';
@@ -45,7 +45,7 @@ export class GnomesComponent implements OnInit, OnDestroy {
       (data: any) => this.gnomes = data.Brastlewark,
       err => console.error(err),
       () => {
-        this.store.dispatch(new LoadGnomes());
+        this.store.dispatch(new SetGnomes(this.gnomes));
         this.store.dispatch(new SetCounter(0));
         this.store.select(state => state.counter.counter).subscribe({
           next: (x) => {
