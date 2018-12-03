@@ -10,7 +10,7 @@
   display: grid;
   grid-template-columns: 500px 1fr 1fr 1fr 1fr;
   grid-template-areas: "title title title title title"
-  "image age weight height hair_color";
+    "image age weight height hair_color";
   grid-gap: 10px;
 }
 
@@ -32,6 +32,7 @@
   display: flex;
   justify-self: center;
 }
+
 .age {
   grid-area: age;
 }
@@ -51,6 +52,63 @@
   grid-area: friends_gnome;
 }
 
+@media only screen and (max-width: 768px) {
+  .grid {
+    padding: 0;
+  }
+
+  .grid-container {
+    display: grid;
+    grid-template-columns: 1fr 170px;
+    grid-template-areas: "title title"
+                        "image age"
+                        "image weight"
+                        "image height"
+                        "image hair_color"
+                        "professions_gnome professions_gnome"
+                        "friends_gnome friends_gnome";
+    justify-content: center;
+    font-size: 12px;
+    text-align: center;
+  }
+
+  .image {
+    max-width: 100%;
+    height: 50vh;
+    width: 95%;
+    margin-left: 2.5%;
+    background-size: cover;
+  }
+
+  .title {
+    margin: 0;
+    margin-top: 10px;
+  }
+
+  .age {
+    width: 80%;
+    margin-left: 10%;
+    text-align: center;
+  }
+
+  .weight {
+    width: 80%;
+    margin-left: 10%;
+    text-align: center;
+  }
+
+  .height {
+    width: 80%;
+    margin-left: 10%;
+    text-align: center;
+  }
+
+  .hair_color {
+    width: 80%;
+    margin-left: 10%;
+    text-align: center;
+  }
+}
 
 @media only screen and (max-width: 480px) {
   .grid {
@@ -70,7 +128,7 @@
     text-align: center;
   }
   .image {
-    max-width: 380px;
+    max-width: 100%;
     height: 50vh;
     width: 95%;
     margin-left: 2.5%;
@@ -104,3 +162,7 @@
     text-align: center; 
   }
 }
+
+
+
+
