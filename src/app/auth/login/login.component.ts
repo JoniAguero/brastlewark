@@ -8,7 +8,7 @@ import { FormControl, Validators, FormGroup, FormBuilder } from '@angular/forms'
 })
 export class LoginComponent implements OnInit {
 
-  options: FormGroup;
+  loginForm: FormGroup;
   hide = true;
   email = new FormControl('', [Validators.required, Validators.email]);
   password = new FormControl('', [Validators.required]);
@@ -19,12 +19,17 @@ export class LoginComponent implements OnInit {
   }
 
   constructor(fb: FormBuilder) {
-    this.options = fb.group({
-      color: 'primary'
+    this.loginForm = fb.group({
+      email: this.email,
+      password: this.password
     });
    }
 
   ngOnInit() {
+  }
+
+  onSubmit() {
+    console.warn(this.loginForm.value);
   }
 
 }
