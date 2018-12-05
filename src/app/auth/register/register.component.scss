@@ -1,0 +1,72 @@
+.container-register {
+  background: url('../../../assets/images/auth/register.jpg');
+  background-size: cover;
+  width: 100%;
+  height: 100vh;
+}
+
+.container-register-dark {
+  background-color: rgba(0, 0, 0, .5);
+  width: 100%;
+  height: 100vh;
+}
+
+.container-register-windows {
+  height: 420px;
+  background-color: white;
+  -webkit-box-shadow: 10px 10px 12px -3px rgba(0, 0, 0, 0.75);
+  -moz-box-shadow: 10px 10px 12px -3px rgba(0, 0, 0, 0.75);
+  box-shadow: 10px 10px 12px -3px rgba(0, 0, 0, 0.75);
+  position: absolute;
+  top: 50%;
+  transform: translate(0, -50%);
+  -webkit-transform: translate(0, -50%);
+  border-radius: 4px;
+  width: 40%;
+  margin-left: 30%;
+  min-width: 300px;
+}
+
+.register-windows {
+  width: 90%;
+  margin-left: 5%;
+  height: auto;
+  margin-top: 40px;
+}
+
+.register-windows-form {
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+}
+
+.register-windows-form>form>mat-form-field {
+  width: 100%;
+}
+
+.password {
+  margin-top: 20px;
+}
+
+.submit {
+  width: 100%;
+}
+
+.create-account {
+  text-decoration: none;
+}
+
+@media only screen and (max-width: 950px) {
+  .container-register-windows {
+    width: 50%;
+    margin-left: 25%;
+    min-width: 300px;
+  }
+}
+
+@media only screen and (max-width: 480px) {
+  .container-register-windows {
+    width: 80%;
+    margin-left: 10%;
+  }
+}
