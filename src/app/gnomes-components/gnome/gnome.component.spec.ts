@@ -2,6 +2,8 @@ import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { GnomeComponent } from './gnome.component';
 import { RouterTestingModule } from '@angular/router/testing';
+import { StoreModule, Store, combineReducers } from '@ngrx/store';
+import { AppReducer } from 'src/app/redux/app.reducer';
 
 describe('GnomeComponent', () => {
   let component: GnomeComponent;
@@ -9,7 +11,12 @@ describe('GnomeComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      imports: [RouterTestingModule],
+      imports: [RouterTestingModule,
+        StoreModule.forRoot({
+          ...AppReducer,
+          feature: combineReducers(AppReducer),
+        })
+      ],
       declarations: [ GnomeComponent ]
     })
     .compileComponents();

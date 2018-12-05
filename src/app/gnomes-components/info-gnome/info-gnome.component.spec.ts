@@ -6,6 +6,8 @@ import { DetailsGnomeComponent } from '../details-gnome/details-gnome.component'
 import { ProfessionsGnomeComponent } from '../professions-gnome/professions-gnome.component';
 import { FriendsGnomeComponent } from '../friends-gnome/friends-gnome.component';
 import { AngularMaterialModule } from '../../angular-material/angular-material.module';
+import { StoreModule, Store, combineReducers } from '@ngrx/store';
+import { AppReducer } from 'src/app/redux/app.reducer';
 
 describe('InfoGnomeComponent', () => {
   let component: InfoGnomeComponent;
@@ -13,7 +15,12 @@ describe('InfoGnomeComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      imports: [RouterTestingModule, AngularMaterialModule],
+      imports: [RouterTestingModule, AngularMaterialModule,
+        StoreModule.forRoot({
+          ...AppReducer,
+          feature: combineReducers(AppReducer),
+        })
+      ],
       declarations: [ InfoGnomeComponent, DetailsGnomeComponent, ProfessionsGnomeComponent, FriendsGnomeComponent ]
     })
     .compileComponents();

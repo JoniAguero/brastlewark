@@ -1,6 +1,6 @@
 <div class="container-friends">
   <h4 class="friends-title ">Friends</h4>
-  <ng-container *ngIf="friends.length > 0; else elseTemplate">
+  <ng-container *ngIf="friends && friends.length > 0; else elseTemplate">
     <mat-chip-list class="friends-items">
       <mat-chip class="friend-item" *ngFor="let friend of friends" (click)="goToFriend(friend)">{{friend}}</mat-chip>
     </mat-chip-list>
