@@ -6,7 +6,7 @@ import { Store } from '@ngrx/store';
 
 @Component({
   selector: 'app-gnome',
-  template: `<a routerLink="/gnome/{{data.id}}" class="gnome" (click)="setGnomeSelected()">
+  template: `<a *ngIf="data" routerLink="/gnome/{{data.id}}" class="gnome" (click)="setGnomeSelected()">
               <figure class="gnome-image">
                 <img src={{data.thumbnail}} alt="{{data.name}}">
               </figure>
