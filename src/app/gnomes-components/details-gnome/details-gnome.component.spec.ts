@@ -1,6 +1,7 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { DetailsGnomeComponent } from './details-gnome.component';
+import { AngularMaterialModule } from '../../angular-material/angular-material.module';
 
 describe('DetailsGnomeComponent', () => {
   let component: DetailsGnomeComponent;
@@ -8,6 +9,7 @@ describe('DetailsGnomeComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
+      imports: [AngularMaterialModule],
       declarations: [ DetailsGnomeComponent ]
     })
     .compileComponents();

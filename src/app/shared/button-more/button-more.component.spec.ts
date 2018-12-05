@@ -1,6 +1,7 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { ButtonMoreComponent } from './button-more.component';
+import { AngularMaterialModule } from 'src/app/angular-material/angular-material.module';
 
 describe('ButtonMoreComponent', () => {
   let component: ButtonMoreComponent;
@@ -8,6 +9,7 @@ describe('ButtonMoreComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
+      imports: [AngularMaterialModule],
       declarations: [ ButtonMoreComponent ]
     })
     .compileComponents();

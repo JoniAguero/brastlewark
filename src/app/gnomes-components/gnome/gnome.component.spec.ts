@@ -1,6 +1,7 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { GnomeComponent } from './gnome.component';
+import { RouterTestingModule } from '@angular/router/testing';
 
 describe('GnomeComponent', () => {
   let component: GnomeComponent;
@@ -8,6 +9,7 @@ describe('GnomeComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
+      imports: [RouterTestingModule],
       declarations: [ GnomeComponent ]
     })
     .compileComponents();

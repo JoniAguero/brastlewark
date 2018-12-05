@@ -1,6 +1,11 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { GnomesComponent } from './gnomes.component';
+import { RouterTestingModule } from '@angular/router/testing';
+import { GnomeComponent } from '../gnome/gnome.component';
+import { ButtonMoreComponent } from '../../shared/button-more/button-more.component';
+import { AngularMaterialModule } from '../../angular-material/angular-material.module';
+import { HttpClientModule } from '@angular/common/http';
 
 describe('GnomesComponent', () => {
   let component: GnomesComponent;
@@ -8,7 +13,8 @@ describe('GnomesComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ GnomesComponent ]
+      imports: [RouterTestingModule, AngularMaterialModule, HttpClientModule],
+      declarations: [ GnomesComponent, GnomeComponent, ButtonMoreComponent ]
     })
     .compileComponents();
   }));

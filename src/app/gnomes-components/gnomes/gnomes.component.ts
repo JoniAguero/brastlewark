@@ -11,7 +11,7 @@ import { map } from 'rxjs/operators';
 @Component({
   selector: 'app-gnomes',
   template: `<div class="container">
-                <app-gnome [data]="item" *ngFor="let item of gnomesView | async"></app-gnome>
+                <app-gnome [data]="item" *ngFor="let item of gnomesView$ | async"></app-gnome>
               </div>
               <app-button-more></app-button-more>`,
   styleUrls: ['./gnomes.component.scss']
@@ -19,11 +19,11 @@ import { map } from 'rxjs/operators';
 export class GnomesComponent implements OnInit, OnDestroy {
 
   gnomes: Gnome[];
-  gnomesView: Observable<Gnome[]>;
+  gnomesView$: Observable<Gnome[]>;
 
   constructor(private _apiService: ApiService, private store: Store<AppState>) {
     this.store.select(state => state.search.search).subscribe(search => {
-      this.gnomesView = this.store.select(state => state.gnomes.gnomesView).pipe(
+      this.gnomesView$ = this.store.select(state => state.gnomes.gnomesView).pipe(
         map(gnome => gnome.filter(gnomeFilter => gnomeFilter.name.toLocaleLowerCase().match(search.toLocaleLowerCase()))));
     });
    }
