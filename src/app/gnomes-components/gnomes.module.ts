@@ -13,11 +13,12 @@ import { DetailsGnomeComponent } from './details-gnome/details-gnome.component';
 import { ApiService } from '../services/api.service';
 import { FriendsGnomeComponent } from './friends-gnome/friends-gnome.component';
 import { ProfessionsGnomeComponent } from './professions-gnome/professions-gnome.component';
+import { DashboardComponent } from './dashboard/dashboard.component';
 
 @NgModule({
     imports: [AngularMaterialModule, CommonModule, AppRoutingModule, SharedModule],
     declarations: [GnomeComponent, GnomesComponent, InfoGnomeComponent, DetailsGnomeComponent,
-        FriendsGnomeComponent, ProfessionsGnomeComponent],
+        FriendsGnomeComponent, ProfessionsGnomeComponent, DashboardComponent],
     providers: [ApiService]
 })
 export class GnomesModule { }

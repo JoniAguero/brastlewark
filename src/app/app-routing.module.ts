@@ -1,17 +1,20 @@
 import { NgModule } from '@angular/core';
 
 import { Routes, RouterModule } from '@angular/router';
-import { GnomesComponent } from './gnomes-components/gnomes/gnomes.component';
-import { InfoGnomeComponent } from './gnomes-components/info-gnome/info-gnome.component';
 import { LoginComponent } from './auth/login/login.component';
 import { RegisterComponent } from './auth/register/register.component';
+import { DashboardComponent } from './gnomes-components/dashboard/dashboard.component';
+import { GnomesRoutes } from './gnomes-components/gnomes.routes';
 
 const routes: Routes = [
-    { path: 'gnomes', component: GnomesComponent },
-    { path: 'gnome/:id', component: InfoGnomeComponent },
     { path: 'login', component: LoginComponent },
     { path: 'register', component: RegisterComponent },
-    { path: '**', redirectTo: 'gnomes' }
+    {   path: '',
+        component: DashboardComponent,
+        children: GnomesRoutes
+    },
+    { path: '**', redirectTo: '' }
+
 ];
 
 
