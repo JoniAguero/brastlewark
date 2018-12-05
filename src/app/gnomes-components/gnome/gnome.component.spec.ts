@@ -13,7 +13,6 @@ describe('GnomeComponent', () => {
     TestBed.configureTestingModule({
       imports: [RouterTestingModule,
         StoreModule.forRoot({
-          ...AppReducer,
           feature: combineReducers(AppReducer),
         })
       ],

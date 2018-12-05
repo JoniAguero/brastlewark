@@ -15,7 +15,6 @@ describe('FriendsGnomeComponent', () => {
     TestBed.configureTestingModule({
       imports: [AngularMaterialModule, RouterTestingModule,
         StoreModule.forRoot({
-          ...AppReducer,
           feature: combineReducers(AppReducer),
         })
       ],

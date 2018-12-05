@@ -8,9 +8,6 @@ import { Component, OnInit } from '@angular/core';
 })
 export class AppComponent {
 
-  title = 'front-end';
-  items = ['op1', 'op2'];
-
   constructor() {}
 
 }

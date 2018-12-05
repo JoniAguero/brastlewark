@@ -21,14 +21,13 @@ export class GnomesComponent implements OnInit, OnDestroy {
   gnomes: Gnome[];
   gnomesView$: Observable<Gnome[]>;
 
-  constructor(private _apiService: ApiService, private store: Store<AppState>) {
+  constructor(private _apiService: ApiService, private store: Store<AppState>) {}
+
+  ngOnInit(): void {
     this.store.select(state => state.search.search).subscribe(search => {
       this.gnomesView$ = this.store.select(state => state.gnomes.gnomesView).pipe(
         map(gnome => gnome.filter(gnomeFilter => gnomeFilter.name.toLocaleLowerCase().match(search.toLocaleLowerCase()))));
     });
-   }
-
-  ngOnInit(): void {
     this.setGnomes();
   }
 
