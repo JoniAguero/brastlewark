@@ -1,0 +1,24 @@
+<div class="container-login">
+  <div class="container-login-dark">
+    <div class="container-login-windows">
+      <div class="login-windows">
+        <div class="login-windows-form">
+          <h3 class="mat-h3">LOGIN</h3>
+          <form class="login-form" [formGroup]="options">
+            <mat-form-field [color]="options.value.color">
+              <input matInput placeholder="Enter your email" [formControl]="email" required>
+              <mat-error *ngIf="email.invalid">{{getErrorMessage()}}</mat-error>
+            </mat-form-field>
+            <mat-form-field class="password" [color]="options.value.color">
+              <input matInput placeholder="Enter your password" [type]="hide ? 'password' : 'text'">
+              <mat-icon matSuffix (click)="hide = !hide">{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+            </mat-form-field>
+            <button class="submit" mat-raised-button color="primary">Login</button>
+            <p>Not registered?</p>
+            <a class="create-account" routerLink="/register">Create an account</a>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

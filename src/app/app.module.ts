@@ -15,6 +15,7 @@ import { AppReducer } from './redux/app.reducer';
 
 import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app-routing.module';
+import { AuthModule } from './auth/auth.module';
 
 @NgModule({
   declarations: [
@@ -28,6 +29,7 @@ import { AppRoutingModule } from './app-routing.module';
     AngularMaterialModule,
     GnomesModule,
     SharedModule,
+    AuthModule,
     AppRoutingModule,
     StoreModule.forRoot(AppReducer),
     StoreDevtoolsModule.instrument({
