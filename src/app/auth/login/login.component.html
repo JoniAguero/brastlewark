@@ -10,7 +10,7 @@
               <mat-error *ngIf="email.invalid">{{getErrorMessage()}}</mat-error>
             </mat-form-field>
             <mat-form-field class="password" [color]="options.value.color">
-              <input matInput placeholder="Enter your password" [type]="hide ? 'password' : 'text'">
+              <input matInput placeholder="Enter your password" [type]="hide ? 'password' : 'text'" [formControl]="password" required>
               <mat-icon matSuffix (click)="hide = !hide">{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
             </mat-form-field>
             <button class="submit" mat-raised-button color="primary">Login</button>

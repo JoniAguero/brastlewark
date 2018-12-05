@@ -11,6 +11,7 @@ export class LoginComponent implements OnInit {
   options: FormGroup;
   hide = true;
   email = new FormControl('', [Validators.required, Validators.email]);
+  password = new FormControl('', [Validators.required]);
   getErrorMessage() {
     return this.email.hasError('required') ? 'You must enter a value' :
       this.email.hasError('email') ? 'Not a valid email' :
