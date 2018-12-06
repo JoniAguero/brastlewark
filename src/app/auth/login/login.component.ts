@@ -1,11 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, Validators, FormGroup, FormBuilder } from '@angular/forms';
-import { MatSnackBar } from '@angular/material';
 import { Router } from '@angular/router';
-import { Store } from '@ngrx/store';
-import { AppState } from 'src/app/redux/app.reducer';
 import { AuthService } from '../../services/auth.service';
-import { LoginUserAction } from 'src/app/redux/actions/user.actions';
 
 @Component({
   selector: 'app-login',
@@ -24,9 +20,7 @@ export class LoginComponent implements OnInit {
         '';
   }
 
-  constructor(fb: FormBuilder, public _authService: AuthService,
-    public snackBar: MatSnackBar, public router: Router,
-    private store: Store<AppState>) {
+  constructor(fb: FormBuilder, public _authService: AuthService, public router: Router) {
     this.loginForm = fb.group({
       email: this.email,
       password: this.password
@@ -36,21 +30,9 @@ export class LoginComponent implements OnInit {
   ngOnInit() {
   }
 
-  openSnackBar(message: string, action: string) {
-    this.snackBar.open(message, action, {
-      duration: 2000,
-    });
-  }
-
   onSubmit() {
     const { email, password } = this.loginForm.value;
-    this._authService.loginUser(email, password)
-      .then(res => {
-        this.store.dispatch(new LoginUserAction(res.user.email));
-        this.openSnackBar(res.user.email, 'User logged');
-        this.router.navigate(['/']);
-      })
-      .catch(err => this.openSnackBar(err.message, err.code));
+    this._authService.loginUser(email, password);
   }
 
 }
