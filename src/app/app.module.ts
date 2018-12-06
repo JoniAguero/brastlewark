@@ -17,6 +17,10 @@ import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app-routing.module';
 import { AuthModule } from './auth/auth.module';
 
+import { AngularFireModule } from '@angular/fire';
+import { AngularFirestoreModule } from '@angular/fire/firestore';
+import { AngularFireAuthModule } from '@angular/fire/auth';
+
 @NgModule({
   declarations: [
     AppComponent
@@ -31,6 +35,9 @@ import { AuthModule } from './auth/auth.module';
     SharedModule,
     AuthModule,
     AppRoutingModule,
+    AngularFireModule,
+    AngularFirestoreModule,
+    AngularFireAuthModule,
     StoreModule.forRoot(AppReducer),
     StoreDevtoolsModule.instrument({
       maxAge: 25, // Retains last 25 states
