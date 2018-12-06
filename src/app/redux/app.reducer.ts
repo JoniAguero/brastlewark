@@ -2,7 +2,6 @@ import { ActionReducerMap } from '@ngrx/store';
 
 import * as Ui from './reducers/ui.reducer';
 import * as User from './reducers/user.reducer';
-import * as Gnomes from './reducers/gnomes.reducer';
 import * as Counter from './reducers/counter.reducer';
 import * as Search from './reducers/search.reducer';
 
