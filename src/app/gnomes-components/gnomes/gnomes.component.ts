@@ -31,16 +31,15 @@ export class GnomesComponent implements OnInit {
     this.setGnomes();
   }
   setGnomes() {
-    const subscription: Subscription = this.store.select(state => state.counter.counter).subscribe({
-      next: (x) => this.contador$ = x
-    });
-    this._apiService.getData(this.contador$).subscribe(
-      (data: any) => this.store.dispatch(new SetGnomes(data)),
-      err => console.error(err),
-      () => {
-        subscription.unsubscribe();
+    this.store.select(state => state.counter.counter).subscribe({
+      next: (x) => {
+        this.contador$ = x;
+        this._apiService.getData(this.contador$).subscribe(
+          (data: any) => this.store.dispatch(new SetGnomes(data)),
+          err => console.error(err)
+        );
       }
-    );
+    });
   }
 
 }

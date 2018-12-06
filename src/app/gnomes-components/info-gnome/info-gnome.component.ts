@@ -6,6 +6,7 @@ import { Subscription } from 'rxjs';
 import { map } from 'rxjs/operators';
 import { SetGnomeSelected } from 'src/app/redux/actions/gnomes.actions';
 import { GnomeState } from '../../redux/reducers/gnomes.reducer';
+import { ApiService } from 'src/app/services/api.service';
 
 @Component({
   selector: 'app-info-gnome',
@@ -18,22 +19,23 @@ export class InfoGnomeComponent implements OnInit, OnDestroy {
   idSelected: number;
   subscription: Subscription;
 
-  constructor(private store: Store<GnomeState>, private router: Router, private routeActive: ActivatedRoute) { }
+  constructor(private store: Store<GnomeState>,
+              private router: Router,
+              private routeActive: ActivatedRoute,
+              public _apiService: ApiService) { }
 
   ngOnInit() {
     this.setGnomeSeletected();
     this.routeActive.params.subscribe(
       (params: Params) => {
-        if (this.idSelected && parseInt(params.id, 0) !== this.idSelected) {
-          this.store.select(state => state.gnomes.gnomes).pipe(
-            map(gnome =>
-              this.gnomeSelected = gnome.find(function (x) {
-                return x.id === parseInt(params.id, 0);
-              })
-            )
-          ).subscribe().unsubscribe();
-          this.store.dispatch(new SetGnomeSelected(this.gnomeSelected));
-          this.router.navigate([`gnome/${this.gnomeSelected.id}`]);
+        const id = parseInt(params.id, 0);
+        if (this.idSelected && id !== this.idSelected) {
+          this._apiService.getDataById(id).subscribe(data => {
+            this.gnomeSelected = data;
+            this.idSelected = data.id;
+            this.store.dispatch(new SetGnomeSelected(data));
+            this.router.navigate([`gnome/${data.id}`]);
+          });
         }
       }
     );
