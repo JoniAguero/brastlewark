@@ -5,9 +5,10 @@ import { map } from 'rxjs/operators';
 import { MatSnackBar } from '@angular/material';
 import { Store } from '@ngrx/store';
 import { AppState } from '../redux/app.reducer';
-import { LoginUserAction } from '../redux/actions/user.actions';
+import { LoginUserAction, LogoutUserAction } from '../redux/actions/user.actions';
 import { User } from '../utils/models/User.model';
 import { AngularFirestore } from '@angular/fire/firestore';
+import { SetLoadingAction, UnsetLoadingAction } from '../redux/actions/ui.actions';
 
 @Injectable({
   providedIn: 'root'
@@ -22,10 +23,15 @@ export class AuthService {
 
   initAuthListener() {
     this.afAuth.authState.subscribe( user => {
-      console.log(user);
+      if (user && user.uid !== null) {
+        this.store.dispatch(new LoginUserAction(user.email));
+      } else {
+        this.store.dispatch(new LogoutUserAction());
+      }
     });
   }
   createUser( nombre, email, password ) {
+    this.store.dispatch(new SetLoadingAction());
     this.afAuth.auth.createUserWithEmailAndPassword(
       email, password
     ).then(res => {
@@ -41,24 +47,33 @@ export class AuthService {
         .then( () => this.router.navigate(['/']) )
         .catch( err => console.error(err)
       );
-
       this.store.dispatch(new LoginUserAction(res.user.email));
+      this.store.dispatch(new UnsetLoadingAction());
       this.openSnackBar(res.user.email, 'User created');
       this.router.navigate(['/']);
-    }).catch(err => this.openSnackBar(err.message, err.code));
+    }).catch(err => {
+      this.store.dispatch(new UnsetLoadingAction());
+      this.openSnackBar(err.message, err.code);
+    });
   }
 
   loginUser(email, password) {
+    this.store.dispatch(new SetLoadingAction());
     this.afAuth.auth.signInAndRetrieveDataWithEmailAndPassword(
       email, password
     ).then(res => {
-        this.store.dispatch(new LoginUserAction(res.user.email));
+      this.store.dispatch(new LoginUserAction(res.user.email));
+      this.store.dispatch(new UnsetLoadingAction());
         this.openSnackBar(res.user.email, 'User logged');
         this.router.navigate(['/']);
-      }).catch(err => this.openSnackBar(err.message, err.code));
+      }).catch(err => {
+        this.store.dispatch(new UnsetLoadingAction());
+        this.openSnackBar(err.message, err.code);
+      });
   }
 
   logoutUser() {
+    this.store.dispatch(new LogoutUserAction());
     this.router.navigate(['/login']);
     this.afAuth.auth.signOut();
   }

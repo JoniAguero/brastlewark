@@ -52,6 +52,15 @@
   width: 100%;
 }
 
+.spinner {
+  width: 100%;
+  text-align: center;
+}
+
+.spinner> mat-spinner {
+  margin: auto;
+}
+
 .create-account {
   text-decoration: none;
 }
