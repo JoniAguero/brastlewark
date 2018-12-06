@@ -23,34 +23,35 @@ export class AuthService {
 
   initAuthListener() {
     this.afAuth.authState.subscribe( (user: firebase.User) => {
-      console.log(user);
       if (user && user.uid !== null) {
-        this.store.dispatch(new LoginUserAction(user.email));
+        this.afDB.doc(`${user.uid}/user`).valueChanges()
+          .subscribe((userFB: User) => {
+            this.store.dispatch(new LoginUserAction(userFB));
+          });
       } else {
         this.store.dispatch(new LogoutUserAction());
       }
     });
   }
-  createUser( nombre, email, password ) {
+  createUser( name, email, password ) {
     this.store.dispatch(new SetLoadingAction());
     this.afAuth.auth.createUserWithEmailAndPassword(
       email, password
     ).then(res => {
 
-      const user: User = {
+      const user = {
         uid: res.user.uid,
         email: res.user.email,
-        nombre: nombre
+        name: name
       };
 
       this.afDB.doc(`${ user.uid }/user`)
-        .set( user )
+        .set(user)
         .then( () => this.router.navigate(['/']) )
         .catch( err => console.error(err)
       );
-      this.store.dispatch(new LoginUserAction(res.user.email));
       this.store.dispatch(new UnsetLoadingAction());
-      this.openSnackBar(res.user.email, 'User created');
+      this.openSnackBar(res.user.email, 'Created successfully');
       this.router.navigate(['/']);
     }).catch(err => {
       this.store.dispatch(new UnsetLoadingAction());
@@ -63,9 +64,8 @@ export class AuthService {
     this.afAuth.auth.signInAndRetrieveDataWithEmailAndPassword(
       email, password
     ).then(res => {
-      this.store.dispatch(new LoginUserAction(res.user.email));
       this.store.dispatch(new UnsetLoadingAction());
-        this.openSnackBar(res.user.email, 'User logged');
+        this.openSnackBar(res.user.email, 'Logged');
         this.router.navigate(['/']);
       }).catch(err => {
         this.store.dispatch(new UnsetLoadingAction());

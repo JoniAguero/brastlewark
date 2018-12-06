@@ -4,6 +4,7 @@ import { Store } from '@ngrx/store';
 import { AppState } from 'src/app/redux/app.reducer';
 import { AuthService } from 'src/app/services/auth.service';
 import { LogoutUserAction } from '../../redux/actions/user.actions';
+import { User } from '../../utils/models/User.model';
 
 @Component({
   selector: 'app-menu',
@@ -12,14 +13,14 @@ import { LogoutUserAction } from '../../redux/actions/user.actions';
 })
 export class MenuComponent implements OnInit {
 
-  user: string;
+  user: User;
 
   constructor(public router: Router, private store: Store<AppState>, public _authService: AuthService) { }
 
   ngOnInit(): void {
     this.store.select(state => state.user.user).subscribe(data => {
       this.user = data;
-    }).unsubscribe();
+    });
   }
 
   goGnomes() {

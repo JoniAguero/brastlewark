@@ -7,9 +7,10 @@ import { NavbarComponent } from './navbar/navbar.component';
 import { FooterComponent } from './footer/footer.component';
 import { MenuComponent } from './menu/menu.component';
 import { ButtonMoreComponent } from './button-more/button-more.component';
+import { CommonModule } from '@angular/common';
 
 @NgModule({
-    imports: [AngularMaterialModule, ReactiveFormsModule, AppRoutingModule],
+    imports: [AngularMaterialModule, ReactiveFormsModule, AppRoutingModule, CommonModule],
     declarations: [NavbarComponent, FooterComponent, ButtonMoreComponent, MenuComponent],
     exports: [NavbarComponent, FooterComponent, ButtonMoreComponent]
 })

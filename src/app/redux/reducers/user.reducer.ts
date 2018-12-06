@@ -1,7 +1,8 @@
 import * as user from '../actions/user.actions';
+import { User } from 'src/app/utils/models/User.model';
 
 export interface State {
-    user: string;
+    user: User;
 }
 
 const initialState: State = {
