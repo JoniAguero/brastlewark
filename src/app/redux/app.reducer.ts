@@ -9,14 +9,12 @@ import * as Search from './reducers/search.reducer';
 export interface AppState {
     ui: Ui.State;
     user: User.State;
-    gnomes: Gnomes.State;
     counter: Counter.State;
     search: Search.State;
 }
 export const AppReducer: ActionReducerMap<AppState> = {
     ui: Ui.UiReducer,
     user: User.UserReducer,
-    gnomes: Gnomes.GnomesReducer,
     counter: Counter.CounterReducer,
     search: Search.SearchReducer
 };

@@ -1,12 +1,12 @@
-import { Component, OnInit, OnDestroy } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { ApiService } from '../../services/api.service';
 import { Store } from '@ngrx/store';
-import { AppState } from '../../redux/app.reducer';
 import { Gnome } from '../../utils/models/Gnome.model';
-import { SetGnomes, UnsetGnomes, SetGnomesView } from '../../redux/actions/gnomes.actions';
+import { SetGnomes, SetGnomesView } from '../../redux/actions/gnomes.actions';
 import { Observable } from 'rxjs';
 import { SetCounter } from '../../redux/actions/counter.action';
 import { map } from 'rxjs/operators';
+import { GnomeState } from '../../redux/reducers/gnomes.reducer';
 
 @Component({
   selector: 'app-gnomes',
@@ -16,12 +16,12 @@ import { map } from 'rxjs/operators';
               <app-button-more></app-button-more>`,
   styleUrls: ['./gnomes.component.scss']
 })
-export class GnomesComponent implements OnInit, OnDestroy {
+export class GnomesComponent implements OnInit {
 
   gnomes: Gnome[];
   gnomesView$: Observable<Gnome[]>;
 
-  constructor(private _apiService: ApiService, private store: Store<AppState>) {}
+  constructor(private _apiService: ApiService, private store: Store<GnomeState>) {}
 
   ngOnInit(): void {
     this.store.select(state => state.search.search).subscribe(search => {
@@ -30,15 +30,6 @@ export class GnomesComponent implements OnInit, OnDestroy {
     });
     this.setGnomes();
   }
-
-  ngOnDestroy(): void {
-    this.unsetGnomes();
-  }
-
-  unsetGnomes () {
-    // this.store.dispatch(new UnsetGnomes());
-  }
-
   setGnomes() {
     this._apiService.getAllData().subscribe(
       (data: any) => this.gnomes = data.Brastlewark,

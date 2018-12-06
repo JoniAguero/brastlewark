@@ -14,9 +14,15 @@ import { FriendsGnomeComponent } from './friends-gnome/friends-gnome.component';
 import { ProfessionsGnomeComponent } from './professions-gnome/professions-gnome.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { GnomesRoutingModule } from './gnomes-routing.module';
+import { StoreModule } from '@ngrx/store';
+import { GnomesReducer } from '../redux/reducers/gnomes.reducer';
 
 @NgModule({
-    imports: [AngularMaterialModule, CommonModule, SharedModule, GnomesRoutingModule],
+    imports: [AngularMaterialModule,
+              CommonModule,
+              SharedModule,
+              GnomesRoutingModule,
+              StoreModule.forFeature('gnomes', GnomesReducer)],
     declarations: [GnomeComponent, GnomesComponent, InfoGnomeComponent, DetailsGnomeComponent,
         FriendsGnomeComponent, ProfessionsGnomeComponent, DashboardComponent],
     providers: [ApiService]

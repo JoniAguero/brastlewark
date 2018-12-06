@@ -1,14 +1,24 @@
 import { Component, Input, OnDestroy } from '@angular/core';
 import { Store } from '@ngrx/store';
-import { AppState } from 'src/app/redux/app.reducer';
 import { map } from 'rxjs/operators';
 import { SetSearch, UnsetSearch } from 'src/app/redux/actions/search.action';
 import { Gnome } from '../../utils/models/Gnome.model';
 import { SetGnomeSelected } from 'src/app/redux/actions/gnomes.actions';
 import { Router } from '@angular/router';
+import { GnomeState } from '../../redux/reducers/gnomes.reducer';
 @Component({
   selector: 'app-friends-gnome',
-  templateUrl: './friends-gnome.component.html',
+  template: `<div class="container-friends">
+              <h4 class="friends-title">Friends</h4>
+              <ng-container *ngIf="friends && friends.length > 0; else elseTemplate">
+                <mat-chip-list class="friends-items">
+                  <mat-chip class="friend-item" *ngFor="let friend of friends" (click)="goToFriend(friend)">{{friend}}</mat-chip>
+                </mat-chip-list>
+              </ng-container>
+              <ng-template #elseTemplate>
+                <p>No records found</p>
+              </ng-template>
+            </div>`,
   styleUrls: ['./friends-gnome.component.scss']
 })
 export class FriendsGnomeComponent implements OnDestroy {
@@ -16,7 +26,7 @@ export class FriendsGnomeComponent implements OnDestroy {
   @Input() friends: string[];
   gnomeSearch: Gnome;
 
-  constructor(private router: Router, private store: Store<AppState>) { }
+  constructor(private router: Router, private store: Store<GnomeState>) { }
 
   goToFriend(friend) {
     this.store.dispatch(new SetSearch(friend));

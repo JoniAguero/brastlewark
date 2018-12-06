@@ -1,11 +1,11 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
 import { Store } from '@ngrx/store';
-import { AppState } from 'src/app/redux/app.reducer';
 import { Gnome } from '../../utils/models/Gnome.model';
 import { Router, ActivatedRoute, Params } from '@angular/router';
 import { Subscription } from 'rxjs';
 import { map } from 'rxjs/operators';
 import { SetGnomeSelected } from 'src/app/redux/actions/gnomes.actions';
+import { GnomeState } from '../../redux/reducers/gnomes.reducer';
 
 @Component({
   selector: 'app-info-gnome',
@@ -18,7 +18,7 @@ export class InfoGnomeComponent implements OnInit, OnDestroy {
   idSelected: number;
   subscription: Subscription;
 
-  constructor(private store: Store<AppState>, private router: Router, private routeActive: ActivatedRoute) { }
+  constructor(private store: Store<GnomeState>, private router: Router, private routeActive: ActivatedRoute) { }
 
   ngOnInit() {
     this.setGnomeSeletected();

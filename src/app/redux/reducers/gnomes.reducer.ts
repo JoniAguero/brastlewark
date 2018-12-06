@@ -1,11 +1,18 @@
 import * as gnomesActions from '../actions/gnomes.actions';
 import { Gnome } from '../../utils/models/Gnome.model';
+import { AppState } from '../app.reducer';
+import { GnomeState } from './gnomes.reducer';
 
 export interface State {
     gnomes: Gnome[];
     gnomesView: Gnome[];
     gnomeSelected: Gnome;
 }
+
+export interface GnomeState extends AppState {
+    gnomes: State;
+}
+
 const initialState: State = {
     gnomes: [],
     gnomesView: [],
