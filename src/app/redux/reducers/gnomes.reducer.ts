@@ -47,6 +47,12 @@ export function GnomesReducer(state = initialState, action: gnomesActions.action
                 gnomesView: [...state.gnomesView],
                 gnomeSelected: action.gnomeSelected
             };
+        case gnomesActions.UNSET_GNOME_SELECTED:
+            return {
+                gnomes: [...state.gnomes],
+                gnomesView: [...state.gnomesView],
+                gnomeSelected: undefined
+            };
         default:
             return state;
     }

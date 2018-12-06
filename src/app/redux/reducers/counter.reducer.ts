@@ -14,7 +14,7 @@ export function CounterReducer(state = initialState, action: counterActions.acti
             };
         case counterActions.UNSET_COUNTER:
             return {
-                counter: 0
+                counter: 20
             };
         default:
             return state;

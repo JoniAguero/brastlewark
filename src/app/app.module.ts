@@ -1,11 +1,10 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { AngularMaterialModule } from './angular-material/angular-material.module';
-import { SharedModule } from './shared/shared.module';
-import { GnomesModule } from './gnomes-components/gnomes.module';
+
+import { AuthModule } from './auth/auth.module';
 
 import { environment } from '../environments/environment';
 // ngrx
@@ -16,11 +15,9 @@ import { AppReducer } from './redux/app.reducer';
 import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app-routing.module';
 
-
 import { AngularFireModule } from '@angular/fire';
 import { AngularFirestoreModule } from '@angular/fire/firestore';
 import { AngularFireAuthModule } from '@angular/fire/auth';
-import { AuthModule } from './auth/auth.module';
 
 @NgModule({
   declarations: [
@@ -28,12 +25,9 @@ import { AuthModule } from './auth/auth.module';
   ],
   imports: [
     BrowserModule,
-    FormsModule,
     HttpClientModule,
     BrowserAnimationsModule,
     AngularMaterialModule,
-    GnomesModule,
-    SharedModule,
     AuthModule,
     AppRoutingModule,
     AngularFireModule.initializeApp(environment.firebase, 'bastlewark'),

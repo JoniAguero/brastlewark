@@ -9,6 +9,9 @@ import { LoginUserAction, LogoutUserAction } from '../redux/actions/user.actions
 import { User } from '../utils/models/User.model';
 import { AngularFirestore } from '@angular/fire/firestore';
 import { SetLoadingAction, UnsetLoadingAction } from '../redux/actions/ui.actions';
+import { UnsetCounter } from '../redux/actions/counter.action';
+import { UnsetGnomeSelected, UnsetGnomes } from '../redux/actions/gnomes.actions';
+import { UnsetSearch } from '../redux/actions/search.action';
 
 @Injectable({
   providedIn: 'root'
@@ -27,9 +30,8 @@ export class AuthService {
         this.afDB.doc(`${user.uid}/user`).valueChanges()
           .subscribe((userFB: User) => {
             this.store.dispatch(new LoginUserAction(userFB));
-          });
-      } else {
-        this.store.dispatch(new LogoutUserAction());
+          }
+        );
       }
     });
   }
@@ -74,6 +76,10 @@ export class AuthService {
   }
 
   logoutUser() {
+    this.store.dispatch(new UnsetCounter());
+    this.store.dispatch(new UnsetGnomeSelected());
+    this.store.dispatch(new UnsetGnomes());
+    this.store.dispatch(new UnsetSearch());
     this.store.dispatch(new LogoutUserAction());
     this.router.navigate(['/login']);
     this.afAuth.auth.signOut();
