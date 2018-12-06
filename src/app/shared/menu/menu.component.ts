@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { Store } from '@ngrx/store';
 import { AppState } from 'src/app/redux/app.reducer';
+import { AuthService } from 'src/app/services/auth.service';
+import { LogoutUserAction } from '../../redux/actions/user.actions';
 
 @Component({
   selector: 'app-menu',
@@ -12,7 +14,7 @@ export class MenuComponent implements OnInit {
 
   user: string;
 
-  constructor(public router: Router, private store: Store<AppState>) { }
+  constructor(public router: Router, private store: Store<AppState>, public _authService: AuthService) { }
 
   ngOnInit(): void {
     this.store.select(state => state.user.user).subscribe(data => {
@@ -22,6 +24,11 @@ export class MenuComponent implements OnInit {
 
   goGnomes() {
     this.router.navigate(['/gnomes']);
+  }
+
+  logout() {
+    this.store.dispatch(new LogoutUserAction());
+    this._authService.logoutUser();
   }
 
 }

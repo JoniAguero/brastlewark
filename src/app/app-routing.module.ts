@@ -5,13 +5,15 @@ import { LoginComponent } from './auth/login/login.component';
 import { RegisterComponent } from './auth/register/register.component';
 import { DashboardComponent } from './gnomes-components/dashboard/dashboard.component';
 import { GnomesRoutes } from './gnomes-components/gnomes.routes';
+import { AuthGuardService } from './services/auth-guard.service';
 
 const routes: Routes = [
     { path: 'login', component: LoginComponent },
     { path: 'register', component: RegisterComponent },
     {   path: '',
         component: DashboardComponent,
-        children: GnomesRoutes
+        children: GnomesRoutes,
+        canActivate: [AuthGuardService]
     },
     { path: '**', redirectTo: '' }
 
