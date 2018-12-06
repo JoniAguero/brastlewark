@@ -63,7 +63,7 @@ export class AuthService {
 
   loginUser(email, password) {
     this.store.dispatch(new SetLoadingAction());
-    this.afAuth.auth.signInAndRetrieveDataWithEmailAndPassword(
+    this.afAuth.auth.signInWithEmailAndPassword (
       email, password
     ).then(res => {
       this.store.dispatch(new UnsetLoadingAction());

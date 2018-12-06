@@ -1,6 +1,8 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
+import { map } from 'rxjs/operators';
+import { BrastlewarkModel } from '../utils/models/Brastlewark.model';
 
 @Injectable({
   providedIn: 'root'
@@ -13,7 +15,10 @@ export class ApiService {
 
   constructor(private http: HttpClient) { }
 
-  getAllData(): Observable<any> {
-    return this.http.get(this.URL);
-  }
+  getData(counter: number) {
+    return this.http.get(this.URL)
+      .pipe(
+        map((result: BrastlewarkModel) => result.Brastlewark.filter( item => item.id <= counter ))
+      );
+    }
 }
