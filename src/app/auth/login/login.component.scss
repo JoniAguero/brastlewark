@@ -60,7 +60,6 @@
   .container-login-windows {
     width: 50%;
     margin-left: 25%;
-    min-width: 300px;
   }
 }
 
@@ -68,5 +67,30 @@
   .container-login-windows {
     width: 80%;
     margin-left: 10%;
+  }
+}
+
+@media only screen and (max-width: 321px) {
+  .container-login-windows {
+    width: 70%;
+    margin-left: 15%;
+    min-width: 200px;
+  }
+}
+
+@media only screen and (max-height: 321px) {
+  .container-login-windows {
+    height: 300px;
+    width: 70%;
+    margin-left: 15%;
+  }
+  .password {
+    margin-top: 0px;
+  }
+  .login-windows {
+    width: 90%;
+    margin-left: 5%;
+    height: auto;
+    margin-top: 0px;
   }
 }

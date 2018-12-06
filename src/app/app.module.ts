@@ -1,6 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { AngularMaterialModule } from './angular-material/angular-material.module';
@@ -15,15 +15,16 @@ import { AppReducer } from './redux/app.reducer';
 
 import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app-routing.module';
-import { AuthModule } from './auth/auth.module';
+
 
 import { AngularFireModule } from '@angular/fire';
 import { AngularFirestoreModule } from '@angular/fire/firestore';
 import { AngularFireAuthModule } from '@angular/fire/auth';
+import { AuthModule } from './auth/auth.module';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
   ],
   imports: [
     BrowserModule,
@@ -35,7 +36,7 @@ import { AngularFireAuthModule } from '@angular/fire/auth';
     SharedModule,
     AuthModule,
     AppRoutingModule,
-    AngularFireModule,
+    AngularFireModule.initializeApp(environment.firebase, 'bastlewark'),
     AngularFirestoreModule,
     AngularFireAuthModule,
     StoreModule.forRoot(AppReducer),
