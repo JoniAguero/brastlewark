@@ -14,7 +14,7 @@ import { SetSearch } from 'src/app/redux/actions/search.action';
                 </figure>
               </a>
               <form class="navbar-form" [formGroup]="gnomeForm">
-                <mat-form-field class="navbar-form-input">
+                <mat-form-field class="navbar-form-input" [color]="color">
                   <input matInput placeholder="Search Gnome" value="" formControlName="name">
                 </mat-form-field>
               </form>
@@ -26,6 +26,7 @@ import { SetSearch } from 'src/app/redux/actions/search.action';
 })
 export class NavbarComponent implements OnInit {
 
+  color = 'accent';
   gnomeForm = this.fb.group({
     name: ['']
   });

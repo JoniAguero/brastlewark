@@ -22,7 +22,8 @@ export class AuthService {
               private afDB: AngularFirestore) { }
 
   initAuthListener() {
-    this.afAuth.authState.subscribe( user => {
+    this.afAuth.authState.subscribe( (user: firebase.User) => {
+      console.log(user);
       if (user && user.uid !== null) {
         this.store.dispatch(new LoginUserAction(user.email));
       } else {
