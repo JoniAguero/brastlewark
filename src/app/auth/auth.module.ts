@@ -6,7 +6,7 @@ import { AppRoutingModule } from '../app-routing.module';
 import { LoginComponent } from './login/login.component';
 import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 import { RegisterComponent } from './register/register.component';
-import { AuthService } from './auth.service';
+import { AuthService } from '../services/auth.service';
 
 @NgModule({
     imports: [AngularMaterialModule, AppRoutingModule, ReactiveFormsModule, FormsModule, CommonModule],

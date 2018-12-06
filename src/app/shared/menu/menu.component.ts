@@ -12,7 +12,7 @@ export class MenuComponent implements OnInit {
 
   user: string;
 
-  constructor(private router: Router, private store: Store<AppState>) { }
+  constructor(public router: Router, private store: Store<AppState>) { }
 
   ngOnInit(): void {
     this.store.select(state => state.user.user).subscribe(data => {

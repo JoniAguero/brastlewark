@@ -1,8 +1,11 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl, Validators, FormBuilder } from '@angular/forms';
-import { AuthService } from '../auth.service';
+import { AuthService } from '../../services/auth.service';
 import { MatSnackBar } from '@angular/material';
 import { Router } from '@angular/router';
+import { Store } from '@ngrx/store';
+import { AppState } from 'src/app/redux/app.reducer';
+import { LoginUserAction } from '../../redux/actions/user.actions';
 
 @Component({
   selector: 'app-register',
@@ -18,7 +21,8 @@ export class RegisterComponent implements OnInit {
   password = new FormControl('', [Validators.required]);
 
   constructor(fb: FormBuilder, public _authService: AuthService,
-    public snackBar: MatSnackBar, public router: Router) {
+    public snackBar: MatSnackBar, public router: Router,
+    private store: Store<AppState>) {
     this.registerForm = fb.group({
       email: this.email,
       name: this.name,
@@ -43,7 +47,7 @@ export class RegisterComponent implements OnInit {
     const { name, email, password } = this.registerForm.value;
     this._authService.createUser(name, email, password)
       .then(res => {
-        console.log(res);
+        this.store.dispatch(new LoginUserAction(res.user.email));
         this.openSnackBar(res.user.email, 'User created');
         this.router.navigate(['/']);
       })

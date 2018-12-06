@@ -13,4 +13,11 @@ export class AuthService {
       email, password
     );
   }
+
+  loginUser(email, password) {
+    return this.afAuth.auth.signInAndRetrieveDataWithEmailAndPassword(
+      email, password
+    );
+  }
+
 }
