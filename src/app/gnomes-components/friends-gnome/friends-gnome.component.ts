@@ -1,12 +1,11 @@
 import { Component, Input, OnDestroy } from '@angular/core';
 import { Store } from '@ngrx/store';
-import { map } from 'rxjs/operators';
 import { SetSearch, UnsetSearch } from 'src/app/redux/actions/search.action';
-import { Gnome } from '../../utils/models/Gnome.model';
 import { SetGnomeSelected } from 'src/app/redux/actions/gnomes.actions';
 import { Router } from '@angular/router';
 import { GnomeState } from '../../redux/reducers/gnomes.reducer';
 import { ApiService } from '../../services/api.service';
+import { SetLoadingAction, UnsetLoadingAction } from '../../redux/actions/ui.actions';
 @Component({
   selector: 'app-friends-gnome',
   template: `<div class="container-friends">
@@ -29,10 +28,12 @@ export class FriendsGnomeComponent implements OnDestroy {
   constructor(private router: Router, private store: Store<GnomeState>, public _apiService: ApiService) { }
 
   goToFriend(friend) {
+    this.store.dispatch(new SetLoadingAction());
     this.store.dispatch(new SetSearch(friend));
     this.store.select(state => state.search.search).subscribe(search => {
       this._apiService.getDataByName(search).subscribe(data => {
         this.store.dispatch(new SetGnomeSelected(data));
+        this.store.dispatch(new UnsetLoadingAction());
         this.router.navigate([`gnome/${data.id}`]);
       });
     }).unsubscribe();

@@ -1,24 +1,33 @@
+<ng-container *ngIf="!loading$; else elseTemplate">
 <div class="grid">
-	<div class="grid-container" *ngIf="gnomeSelected">
-		<div class="title">{{gnomeSelected.name}}</div>
-		<div class="image" [ngStyle]="{'background-image': 'url(' + gnomeSelected.thumbnail + ')'}"></div>
-		<div class="age">
-			<app-details-gnome [title]="'Age'" [data]="gnomeSelected.age"></app-details-gnome>
-		</div>
-		<div class="weight">
-			<app-details-gnome [title]="'Weight'" [data]="gnomeSelected.weight.toPrecision(4)"></app-details-gnome>
-		</div>
-		<div class="height">
-			<app-details-gnome [title]="'Height'" [data]="gnomeSelected.height.toPrecision(4)"></app-details-gnome>
-		</div>
-		<div class="hair_color">
-			<app-details-gnome [title]="'Hair Color'" [data]="gnomeSelected.hair_color"></app-details-gnome>
-		</div>
-		<div class="professions_gnome">
-			<app-professions-gnome [professions]="gnomeSelected.professions"></app-professions-gnome>
-		</div>
-		<div class="friends_gnome">
-			<app-friends-gnome [friends]="gnomeSelected.friends"></app-friends-gnome>
-		</div>
-	</div>
+  <div class="grid-container" *ngIf="gnomeSelected">
+    <div class="title">{{gnomeSelected.name}}</div>
+    <div class="image" [ngStyle]="{'background-image': 'url(' + gnomeSelected.thumbnail + ')'}"></div>
+    <div class="age">
+      <app-details-gnome [title]="'Age'" [data]="gnomeSelected.age"></app-details-gnome>
+    </div>
+    <div class="weight">
+      <app-details-gnome [title]="'Weight'" [data]="gnomeSelected.weight.toPrecision(4)"></app-details-gnome>
+    </div>
+    <div class="height">
+      <app-details-gnome [title]="'Height'" [data]="gnomeSelected.height.toPrecision(4)"></app-details-gnome>
+    </div>
+    <div class="hair_color">
+      <app-details-gnome [title]="'Hair Color'" [data]="gnomeSelected.hair_color"></app-details-gnome>
+    </div>
+    <div class="professions_gnome">
+      <app-professions-gnome [professions]="gnomeSelected.professions"></app-professions-gnome>
+    </div>
+    <div class="friends_gnome">
+      <app-friends-gnome [friends]="gnomeSelected.friends"></app-friends-gnome>
+    </div>
+  </div>
 </div>
+</ng-container>
+<ng-template #elseTemplate>
+	<div class="spinner">
+		<mat-spinner></mat-spinner>
+	</div>
+</ng-template>
+
+
