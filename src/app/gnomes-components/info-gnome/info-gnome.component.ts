@@ -33,7 +33,6 @@ export class InfoGnomeComponent implements OnInit, OnDestroy {
     this.subscriptionLoading = this.store.select(state => state.ui.loading).subscribe({
       next: (x) => {
         this.loading$ = x;
-        console.log(this.loading$);
       }
     });
     this.setGnomeSeletected();
