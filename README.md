@@ -1,12 +1,13 @@
 Brastlewark [Front-Assesment]
 ======================
 
-[URL Deployment]: https://joniaguero.github.io/brastlewark
-
   - [Information](#information)
   - [Installation](#installation)
 
 ## Information ##
+
+[URL Deployment]: https://joniaguero.github.io/brastlewark
+
 Angular application (version ^7.1.1) where external api is consumed and redux is used (ngrx) for data management. Also contains some sample unit tests.
 It was displayed on GithubPages and tested in Google PageSpeed Insights.
 Firebase is used for user authentication.
